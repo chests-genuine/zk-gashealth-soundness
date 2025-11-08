@@ -97,6 +97,11 @@ def main() -> None:
     print(f"  • Average Base Fee: {result['average_base_fee_gwei']} Gwei")
     status = "✅ Stable Gas Pattern" if result["soundness_ok"] else "⚠️ Unstable Gas Behavior"
     print(f"  • Soundness Status: {status}")
+     # ✅ New: Add a visual bar for average gas utilization
+    avg_util = result['average_utilization_percent']
+    filled_blocks = int(avg_util / 5)  # 20 total segments
+    bar = "█" * filled_blocks + "-" * (20 - filled_blocks)
+    print(f"  • Utilization Bar: |{bar}| ({avg_util:.1f}%)")
     print(f"⏱️ Duration: {result['elapsed_seconds']}s")
 
     if args.json:
