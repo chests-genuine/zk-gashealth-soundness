@@ -49,3 +49,13 @@ Monitor hourly gas health:
   • Average Base Fee: 19.384 Gwei  
   • Soundness Status: ✅ Stable Gas Pattern  
 ⏱️ Duration: 3.27s  
+
+## Notes
+- **Soundness Rule:** The network is considered stable if average utilization > 50% and volatility (max-min) < 40%.  
+- **Base Fee Trends:** Helps identify congestion spikes or lull periods relevant for zk-rollup batching.  
+- **EVM Compatibility:** Works on any chain supporting `eth_getBlockByNumber`.  
+- **Performance Tip:** Use lower `--count` for quick checks; increase for long-term metrics.  
+- **JSON Integration:** Combine with dashboards like Grafana or Prometheus for real-time alerts.  
+- **Exit Codes:**  
+  - `0` → Gas pattern stable (sound)  
+  - `2` → High volatility or unsound utilization pattern  
